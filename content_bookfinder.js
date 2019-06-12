@@ -66,7 +66,6 @@ chrome.storage.sync.get(["bookfinder_Checking", "bookfinder_isbns", "currentISBN
 // checking()
 
 function checking(bookfinder_isbns, currentISBN) {
-    debugger;
     //console.log(currentISBN, "Current ISBN")
     var str = location.href
     // var res = str.split("https://www.bookfinder.com/search/?author=&title=&lang=en&isbn=");
@@ -80,7 +79,7 @@ function checking(bookfinder_isbns, currentISBN) {
         
         var rowObject = new Object()
         rowObject.price = $(this).find("td:eq( 3 ) a ").text()
-        var res = rowObject.price.replace("$","").replace(",",".");        
+        var res = rowObject.price.replace("$","").replace(",",".");
         //console.log(res)
         if (res) { 
             var price = parseFloat(res)
