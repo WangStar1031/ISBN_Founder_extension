@@ -1,0 +1,49 @@
+{
+    "manifest_version":2,
+    "name":"Web scraping",
+    "version":"1.0",
+    "permissions":[
+        "activeTab",
+        "tabs",
+        "storage",
+        "unlimitedStorage"
+    ],
+    "browser_action":{
+        "matches": [
+            "*://*.zenarbitrage.com/search/*",
+            "*://*.bookfinder.com/*"
+        ],
+        "default_icon":"image/scraping_icon.svg",
+        "default_popup":"popup.html",
+        "default_title":"extension for data scraping"
+    },
+    "content_scripts":[
+        {
+            "matches": [
+                "*://*.zenarbitrage.com/*"
+              ],
+            "js":[
+                "js/jquery.min.js",
+                "content_zenarbitrage.js"]
+        },
+        {
+            "matches": [
+                "*://*.sellercentral.amazon.com/*"
+              ],
+            "js":[
+                "js/jquery.min.js",
+                "content_amazon.js"]
+        },
+        {
+            "matches": [
+                "*://*.bookfinder.com/*"
+              ],
+            "js":[
+                "js/jquery.min.js",
+                "content_bookfinder.js"
+            ]
+        }
+        
+    ]
+    
+}
